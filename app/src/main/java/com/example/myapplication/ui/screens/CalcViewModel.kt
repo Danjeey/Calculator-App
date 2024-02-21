@@ -105,7 +105,13 @@ class CalcViewModel(
         fun onCalculate() {
             val result = calculator.calculate(num1.toDouble(), num2.toDouble(), op)
             if (num1.isBlank() || num2.isBlank() || op.isBlank()) return
-            else _uiState.value = CalcUiState(currentValue = result, num1 = result)
+            else {
+                _uiState.value = CalcUiState(
+                    currentValue = result,
+                    num1 = result,
+                    history = _uiState.value.currentValue + " = " + result
+                )
+            }
         }
 
         viewModelScope.launch {

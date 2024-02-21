@@ -25,7 +25,7 @@ fun CalcScreen(viewModel: CalcViewModel = hiltViewModel()) {
             ) {
                 DisplayArea(
                     currentValue = uiState.currentValue,
-                    calcHistory = "num1 = ${uiState.num1} + num2 = ${uiState.num2} + op = ${uiState.op}",
+                    calcHistory = uiState.history,
                     modifier = Modifier.weight(0.8f)
                 )
                 CalcBoard(modifier = Modifier.weight(1f), viewModel)
